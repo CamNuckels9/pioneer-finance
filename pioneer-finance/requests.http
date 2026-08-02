@@ -1,0 +1,10 @@
+POST http://localhost:8080/transactions
+Content-Type: application/json
+
+{
+  "description": "Paycheck",
+  "amount": 2500.00,
+  "category": "Salary",
+  "date": "2026-08-01",
+  "type": "INCOME"
+}
