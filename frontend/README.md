@@ -6,6 +6,20 @@ Pioneer Finance is a full-stack personal finance application that allows users t
 
 I built Pioneer Finance as a portfolio project to demonstrate full-stack software development using Java, Spring Boot, React, REST APIs, authentication, relational data, and modern frontend development.
 
+## Screenshots
+
+### Dashboard
+
+![Pioneer Finance Dashboard](screenshots/dashboard.png)
+
+### Accounts
+
+![Pioneer Finance Accounts](screenshots/accounts.png)
+
+### Transactions
+
+![Pioneer Finance Transactions](screenshots/transactions.png)
+
 ## Features
 
 - User registration and login
@@ -127,3 +141,24 @@ From the project directory:
 cd frontend
 npm install
 npm run dev
+```
+
+The frontend runs on:
+
+`http://localhost:5173`
+
+## Project Status
+
+Pioneer Finance is a completed portfolio MVP.
+
+Core functionality includes authentication, account management, transaction management, transfers, dashboard calculations, validation, error handling, and a responsive branded frontend.
+
+Future enhancements could include PostgreSQL deployment, financial institution connectivity, expanded analytics, and additional budgeting tools.
+
+## Author
+
+**Cameron Nuckels**
+
+Computer Science student and aspiring software developer with professional experience in banking and financial services.
+
+Pioneer Finance combines my financial-services background with my software development education by applying full-stack development to a real-world personal finance use case.
