@@ -17,23 +17,52 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleTransactionNotFound(
             TransactionNotFoundException exception
     ) {
-        Map<String, Object> body = new LinkedHashMap<>();
+        return buildResponse(
+                HttpStatus.NOT_FOUND,
+                "Not Found",
+                exception.getMessage()
+        );
+    }
 
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", HttpStatus.NOT_FOUND.value());
-        body.put("error", "Not Found");
-        body.put("message", exception.getMessage());
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<Map<String, Object>> handleEmailAlreadyExists(
+            EmailAlreadyExistsException exception
+    ) {
+        return buildResponse(
+                HttpStatus.CONFLICT,
+                "Conflict",
+                exception.getMessage()
+        );
+    }
 
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(body);
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<Map<String, Object>> handleInvalidCredentials(
+            InvalidCredentialsException exception
+    ) {
+        return buildResponse(
+                HttpStatus.UNAUTHORIZED,
+                "Unauthorized",
+                exception.getMessage()
+        );
+    }
+
+    @ExceptionHandler(AccountHasTransactionsException.class)
+    public ResponseEntity<Map<String, Object>> handleAccountHasTransactions(
+            AccountHasTransactionsException exception
+    ) {
+        return buildResponse(
+                HttpStatus.CONFLICT,
+                "Conflict",
+                exception.getMessage()
+        );
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleValidationErrors(
             MethodArgumentNotValidException exception
     ) {
-        Map<String, String> validationErrors = new LinkedHashMap<>();
+        Map<String, String> validationErrors =
+                new LinkedHashMap<>();
 
         exception.getBindingResult()
                 .getFieldErrors()
@@ -44,15 +73,64 @@ public class GlobalExceptionHandler {
                         )
                 );
 
-        Map<String, Object> body = new LinkedHashMap<>();
+        Map<String, Object> body =
+                new LinkedHashMap<>();
 
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", HttpStatus.BAD_REQUEST.value());
-        body.put("error", "Bad Request");
-        body.put("validationErrors", validationErrors);
+        body.put(
+                "timestamp",
+                LocalDateTime.now()
+        );
+
+        body.put(
+                "status",
+                HttpStatus.BAD_REQUEST.value()
+        );
+
+        body.put(
+                "error",
+                "Bad Request"
+        );
+
+        body.put(
+                "validationErrors",
+                validationErrors
+        );
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
+                .body(body);
+    }
+
+    private ResponseEntity<Map<String, Object>> buildResponse(
+            HttpStatus status,
+            String error,
+            String message
+    ) {
+        Map<String, Object> body =
+                new LinkedHashMap<>();
+
+        body.put(
+                "timestamp",
+                LocalDateTime.now()
+        );
+
+        body.put(
+                "status",
+                status.value()
+        );
+
+        body.put(
+                "error",
+                error
+        );
+
+        body.put(
+                "message",
+                message
+        );
+
+        return ResponseEntity
+                .status(status)
                 .body(body);
     }
 }

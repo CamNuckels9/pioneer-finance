@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+# Pioneer Finance local database
+data/
+
+# Frontend dependencies
+frontend/node_modules/
+
+# Frontend production build
+frontend/dist/
+
+# Environment / secret files
+.env
+.env.*
+frontend/.env
+frontend/.env.*
