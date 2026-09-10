@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import pioneerLogo from "./assets/pioneer-logo.png";
 
 function App() {
   // =========================
@@ -899,7 +900,11 @@ const [editingAccountId, setEditingAccountId] = useState(null);
     return (
       <div className="login-page">
         <div className="login-card">
-          <div className="logo-mark">PF</div>
+          <img
+            src={pioneerLogo}
+            alt="Pioneer Finance logo"
+            className="login-logo"
+          />
 
           <h1>Pioneer Finance</h1>
 
@@ -981,7 +986,7 @@ const [editingAccountId, setEditingAccountId] = useState(null);
                     border: "none",
                     background: "none",
                     padding: 0,
-                    color: "#2448bd",
+                    color: "#990000",
                     cursor: "pointer",
                     fontWeight: "600",
                   }}
@@ -1082,7 +1087,7 @@ const [editingAccountId, setEditingAccountId] = useState(null);
                     border: "none",
                     background: "none",
                     padding: 0,
-                    color: "#2448bd",
+                    color: "#990000",
                     cursor: "pointer",
                     fontWeight: "600",
                   }}
@@ -1105,14 +1110,16 @@ const [editingAccountId, setEditingAccountId] = useState(null);
       <aside className="sidebar">
         <div>
           <div className="brand">
-            <div className="logo-mark small">
-              PF
-            </div>
-
-            <div>
-              <h2>Pioneer</h2>
-              <span>Finance</span>
-            </div>
+            <img
+              src={pioneerLogo}
+              alt="Pioneer Finance"
+              style={{
+                width: "150px",
+                height: "auto",
+                display: "block",
+                borderRadius: "10px",
+              }}
+            />
           </div>
 
           <nav>
