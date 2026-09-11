@@ -10,15 +10,15 @@ I built Pioneer Finance as a portfolio project to demonstrate full-stack softwar
 
 ### Dashboard
 
-![Pioneer Finance Dashboard](screenshots/dashboard.png)
+![Pioneer Finance Dashboard](frontend/screenshots/dashboard.png)
 
 ### Accounts
 
-![Pioneer Finance Accounts](screenshots/accounts.png)
+![Pioneer Finance Accounts](frontend/screenshots/accounts.png)
 
 ### Transactions
 
-![Pioneer Finance Transactions](screenshots/transactions.png)
+![Pioneer Finance Transactions](frontend/screenshots/transactions.png)
 
 ## Features
 
